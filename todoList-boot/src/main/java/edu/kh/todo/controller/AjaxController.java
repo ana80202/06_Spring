@@ -138,10 +138,17 @@ public class AjaxController {
 		return service.todoDelete(todoNo);
 	}
 
-	// Update 방식 요청 처리 (비동기 요청만 가능!)
+	// 완료 여부 변경
+	@ResponseBody
+	@PutMapping("changeComplete")
+	public int changeComplete(@RequestBody Todo todo) {
+		return service.changeComplete(todo);
+	}
+
 	@ResponseBody
 	@PutMapping("update")
 	public int todoUpdate(@RequestBody Todo todo) {
 		return service.todoUpdate(todo);
 	}
+
 }
