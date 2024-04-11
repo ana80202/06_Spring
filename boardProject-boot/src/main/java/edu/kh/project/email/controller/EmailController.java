@@ -31,23 +31,17 @@ public class EmailController {
  * @Autowired를 이용한 의존성 주입 방법은 3가지가 존재한다.
  * 
  * 1) 필드
- * 
  * 2)setter
- * 
  * 3)생성자 (권장)
  * 
  * Lombok 라이브러리 에서 제공하는
- * 
  * @RequiresArgsConstructor 를 이용하면
- * 
  * 필드 중
  * 
  * 1) 초기화 되지 않은 final 이 붙은 필드
- * 
  * 2)초기화 되지 않은 @NotNull 이 붙은 필드
  * 
  * 1,2 에 해당하는 필드에 대한
- * 
  * @Autowired 생성자 구문을 자동완성
  * 
  * 

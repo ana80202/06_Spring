@@ -23,7 +23,6 @@ import lombok.extern.slf4j.Slf4j;
  * @SessionAttributes("key","key","key",...})
  * -Model에 추가된 속성 중
  * key 값이 일치하는 속성을 session scope 로 변경
- * 
  * */
 
 @SessionAttributes({ "loginMember" })
@@ -40,8 +39,8 @@ public class MemebrController {
 	private BCryptPasswordEncoder bcrypt;
 
 	/*
-	 * [로그인] - 특정 사이트에 아이디/비밀번호 등을 입력해서 해당 정보가 있으면 조회/서비스 등등을 이용할 수 있는 것.
-	 * 
+	 * [로그인]
+	 * - 특정 사이트에 아이디/비밀번호 등을 입력해서 해당 정보가 있으면 조회/서비스 등등을 이용할 수 있는 것.
 	 * - 로그인 한 정보를 session에 기록하여 로그아웃 또는 브라우저 종료 시까지 해당 정보를 계속 이용할 수 있게 함
 	 * 
 	 */
