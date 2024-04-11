@@ -3,7 +3,7 @@
 <mapper namespace="edu.kh.project.member.model.mapper.MemberMapper">
 <!-- namespace에 연결할 Mapper 인처페이스 패키지명 + 인터페이스명 작성
 	-> 매퍼 인터페이스 메서드 호출 시
-	     xml 파일에 작성된 태그 중 메서드명과 같은 id를 가진 SQL 이 수행됨
+       xml 파일에 작성된 태그 중 메서드명과 같은 id를 가진 SQL 이 수행됨
  -->
  
  <!-- parameterType 속성은 필수 속성 아님!
@@ -20,5 +20,14 @@ WHERE MEMBER_EMAIL = #{memberEmail}
 AND MEMBER_DEL_FL = 'N'
 
  </select>
+ 
+ <!--이메일 중복 검사 -->
+ <select id="checkEmail" resultType="_int">
+SELECT COUNT(*)
+FROM "MEMBER"
+WHERE MEMBER_DEL_FL = 'N'
+AND MEMBER_EMAIL = #{memberEmail}
+ </select>
+ 
  
 </mapper>
