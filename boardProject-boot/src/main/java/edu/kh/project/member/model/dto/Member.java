@@ -20,7 +20,7 @@ import lombok.ToString;
 @Builder
 public class Member {
 
-	private int memeberNo;
+	private int memberNo;
 	private String memberEmail;
 	private String memberPw;
 	private String memberNickname;
