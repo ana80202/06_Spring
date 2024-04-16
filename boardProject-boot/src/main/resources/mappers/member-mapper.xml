@@ -49,8 +49,19 @@ AND MEMBER_NICKNAME = #{memberNickname}
 			 DEFAULT,
 			 DEFAULT,
 			 DEFAULT)
-
 </insert> 
+
+<select id="selectMemberList" resultType="Member">
+SELECT MEMBER_NO , MEMBER_EMAIL , MEMBER_NICKNAME , MEMBER_DEL_FL
+FROM "MEMBER"
+ORDER BY MEMBER_NO
+</select>
+
+<update id="resetPw">
+	UPDATE "MEMBER" SET
+	MEMBER_PW = #{encPw}
+	WHERE MEMBER_NO = #{inputNo}
+</update>
 
  
  

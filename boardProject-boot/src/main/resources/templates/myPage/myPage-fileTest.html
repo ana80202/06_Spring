@@ -30,7 +30,7 @@
 
         <pre>
           
-          [form태그의 enctype 속성]
+          [form태그의 enctype 속성]  -> File객체 -> Text 값(X)
 
           enctype 이란??
           - 데이터를 서버로 전송할 때 데이터의 형태(인코딩)를 지정하는 속성
@@ -53,7 +53,38 @@
 
         </pre>
 
-     	
+        <form action="/myPage/file/test1"
+               method="post"
+               enctype="multipart/form-data"
+        >
+          <h3>업로드 테스트 1</h3>
+
+          <!-- type="file"도 결국에는 Parameter
+              -> @RequestParam 으로 처리 가능  
+          -->
+          <input type="file" name="uploadFile">
+
+          <button class="myPage-submit">제출하기</button>
+        </form>
+
+        <!-- a태그의 download 속성
+          - href 속성에 작성된 요청에 대한 응답을 다운로드함
+        -->
+        <a th:if="${path != null}" th:text="${path}" th:href="${path}" download>업로드한 파일</a>
+
+      
+          <!--<form enctype="multipart/form-data" method="post"> -->
+          <!--반드시 명시해줘야한다 / method 는 post 가 일반적이다
+              HTTP 스펙 -> GET(권장 X)
+              GET -> URL 데이터 첨부
+              ?memberName=홍길동?파일=asdasdasd
+
+              GET 사용 가능한지만 권장 하지는 않음
+              -> GET 요청 데이터가 URL 에 담긴다 -> 보안취약
+              -> URL 로 통해서 보내는 데이터 길이의 제한이 있다.
+          -->
+          <!-- <input type="file"> 이름, 번호, 주소...---> 
+          <!--</form>-->
         
 
 

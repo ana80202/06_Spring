@@ -1,11 +1,15 @@
 package edu.kh.project.member.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -190,6 +194,50 @@ public class MemebrController {
 		ra.addFlashAttribute("message", message);
 
 		return "redirect:" + path;
+	}
+
+	@GetMapping("login2")
+	public String login2(Member inputMember, RedirectAttributes ra, Model model, HttpServletResponse resp) {
+
+		// 로그인 서비스 호출
+		Member loginMember = service.login2(inputMember);
+
+		model.addAttribute("loginMember", loginMember);
+
+		return "redirect:/"; // 메인페이지 재요청
+	}
+
+	/*	//빠른 로그인 (강사님)
+	
+	public String quickLogin(@RequestParam("memberEmail") String memberEmail, Model model, RedirectAttributes ra) {
+			Member loginMember = service.quickLogin(memberEmail);
+	
+			if (loginMember == null) {
+				ra.addFlashAttribute("message", "해당 이메일이 존재하지 않습니다");
+			} else {
+				model.addAttribute("loginMember", loginMember);
+			}
+	
+			return "redirect:/";
+		}*/
+
+	@ResponseBody
+	@GetMapping("selectMemberList")
+	public List<Member> selectMemberList() {
+
+		// (java)List
+		// (spring) HTTPMeaasgeConverter가 JSON Array(문자열)로 변경
+		// -> (JS) response => response.json() -> JS 객체 배열
+
+		return service.selectMemberList();
+	}
+
+	@ResponseBody
+	@PutMapping("resetPw")
+	public int resetPw(@RequestBody int inputNo) {
+
+		return service.resetPw(inputNo);
+
 	}
 
 }
