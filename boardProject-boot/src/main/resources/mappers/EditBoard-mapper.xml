@@ -57,7 +57,7 @@
  	
 	<!-- 게시글 이미지 모두 삽입 --> 
 	<insert id="insertUploadList" parameterType="list"> 
-	INSERT INTO "BOARD_IMG"
+	INSERT INTO "BOARD_IMG";
 	
 	
 	<!-- separator=" UNION " 앞뒤로 공백을 넣어줘야한다! 공백 안넣어주면 구문이 서로 붙은 상태가 되어버려서 정상수행이 안됨 -->
