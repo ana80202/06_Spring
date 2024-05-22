@@ -23,7 +23,8 @@ public class FilterConfig {
 		filter.setFilter(new LoginFilter());
 
 		// /myPage/* : myPage 로 시작하는 모든 요청
-		String[] filteringURL = { "/myPage/*", "/editBoard/*" };
+		// 로그인한 사람만 들어가도록 필터처리!
+		String[] filteringURL = { "/myPage/*", "/editBoard/*", "/chatting/*" };
 
 		// 필터가 동작할 URL 을 세팅
 		// Arrays.asList(FilteringURL)
