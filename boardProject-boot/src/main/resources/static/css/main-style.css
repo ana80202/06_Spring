@@ -1,5 +1,5 @@
 :root{
-    --main-color : #455ba8;
+    --main-color : #f0c435;
   }
   
   
@@ -62,8 +62,8 @@
   
   #homeLogo{
     /* 지정된 너비에 맞게 높이 자동 지정 */
-    width: 120px;
-    height: auto;
+    width: 500px;
+    height: 500px;
   }
   
   
@@ -272,7 +272,7 @@
   footer {
     width: 100%;
     height: 200px;
-    background-color: #a3add342;
+    background-color: #f8e6b5e3;
     display: flex;
     justify-content: center;
     align-items: center;
